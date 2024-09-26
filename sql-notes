@@ -1,0 +1,111 @@
+SQL Basics
+1. What is SQL?
+SQL (Structured Query Language) is a standard language for accessing and manipulating databases. It is used to perform tasks such as retrieving data, inserting new records, updating records, and deleting data.
+
+Basic SQL Commands
+
+2. Data Querying
+SELECT: Retrieves data from one or more tables.
+
+SELECT column1, column2 FROM table_name;
+WHERE: Filters records that meet a specific condition.
+
+SELECT * FROM table_name WHERE condition;
+ORDER BY: Sorts the result set by one or more columns.
+
+SELECT * FROM table_name ORDER BY column_name ASC|DESC;
+LIMIT: Limits the number of records returned by the query.
+
+SELECT * FROM table_name LIMIT number;
+
+3. Data Manipulation (DML)
+INSERT INTO: Adds new records to a table.
+
+INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+UPDATE: Modifies existing records.
+
+UPDATE table_name SET column1 = value1 WHERE condition;
+DELETE FROM: Removes records from a table.
+
+DELETE FROM table_name WHERE condition;
+
+4. Data Definition (DDL)
+CREATE TABLE: Creates a new table in the database.
+
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    ...
+);
+ALTER TABLE: Modifies an existing table (add, modify, or drop columns).
+
+ALTER TABLE table_name ADD column_name datatype;
+DROP TABLE: Deletes a table from the database.
+
+DROP TABLE table_name;
+
+5. Data Types
+Common SQL data types:
+
+INT: Integer
+VARCHAR(size): Variable-length string
+TEXT: Long text
+DATE: Date (YYYY-MM-DD)
+FLOAT/DOUBLE: Floating-point number
+Advanced SQL Concepts
+
+6. Joins
+Joins combine rows from two or more tables based on related columns.
+
+INNER JOIN: Returns records with matching values in both tables.
+
+SELECT columns FROM table1 INNER JOIN table2 ON table1.column = table2.column;
+LEFT JOIN: Returns all records from the left table and matched records from the right table.
+
+SELECT columns FROM table1 LEFT JOIN table2 ON table1.column = table2.column;
+RIGHT JOIN: Returns all records from the right table and matched records from the left table.
+
+SELECT columns FROM table1 RIGHT JOIN table2 ON table1.column = table2.column;
+FULL OUTER JOIN: Returns all records when there is a match in either table.
+
+SELECT columns FROM table1 FULL OUTER JOIN table2 ON table1.column = table2.column;
+
+7. Group and Aggregate Functions
+GROUP BY: Groups rows that have the same values into summary rows.
+
+SELECT column1, COUNT(column2) FROM table_name GROUP BY column1;
+HAVING: Filters records after GROUP BY.
+
+SELECT column1, COUNT(column2) FROM table_name GROUP BY column1 HAVING condition;
+Aggregate Functions:
+
+COUNT(): Counts the number of rows.
+SUM(): Adds up the values in a numeric column.
+AVG(): Calculates the average value.
+MIN() / MAX(): Finds the minimum or maximum value.
+SELECT AVG(column_name) FROM table_name;
+
+8. Subqueries
+A subquery is a query inside another query.
+Subquery in SELECT:
+
+SELECT column1, (SELECT COUNT(*) FROM table2 WHERE table2.column = table1.column) AS count
+FROM table1;
+Subquery in WHERE:
+SELECT column1 FROM table_name WHERE column2 IN (SELECT column2 FROM another_table WHERE condition);
+
+9. Indexes
+Indexes improve the speed of data retrieval operations on a table.
+
+Creating an Index:
+CREATE INDEX index_name ON table_name (column_name);
+
+10. Transactions
+Transactions ensure that a series of SQL operations are executed completely or not at all.
+BEGIN TRANSACTION: Starts a transaction.
+COMMIT: Saves changes made during the transaction.
+ROLLBACK: Undoes changes if an error occurs.
+
+BEGIN TRANSACTION;
+UPDATE table_name SET column1 = value1 WHERE condition;
+COMMIT;
